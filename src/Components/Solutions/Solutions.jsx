@@ -182,10 +182,11 @@ const Solutions = () => {
             ))}
           </Swiper>
 
-          {/* Custom pagination */}
-          <div className="flex justify-center mt-8">
-            <div className="solutions-pagination"></div>
-          </div>
+         {/* Custom pagination */}
+<div className="flex justify-center mt-8">
+  <div className="solutions-pagination w-fit mx-auto"></div>
+</div>
+
         </div>
       </div>
     </section>
