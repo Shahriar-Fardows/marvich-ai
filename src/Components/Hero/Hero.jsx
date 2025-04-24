@@ -18,7 +18,7 @@ const Hero = () => {
 
   const heroSlides = [
     {
-      tag: "AI Technology",
+      tag: "Geospatial AI",
       title: "Inteligencia Artificial Geoespacial",
       subtitle: "",
       description:
@@ -29,7 +29,7 @@ const Hero = () => {
       color: "cyan",
     },
     {
-      tag: "BI Technology",
+      tag: "Business Intelligence",
       title: "Decisiones poderosas hechas fáciles",
       subtitle: "",
       description: "Comprenda, analice y visualice los fenómenos del mundo real de acuerdo con sus ubicaciones.",
@@ -39,7 +39,7 @@ const Hero = () => {
       color: "purple",
     },
     {
-      tag: "ML Technology",
+      tag: "AI Technology",
       title: "Transforme la productividady el valor de sus activos",
       subtitle: "",
       description:
@@ -238,7 +238,7 @@ const Hero = () => {
                     <img
                       src={slide.image || "/placeholder.svg"}
                       alt={slide.title}
-                      className="rounded-lg shadow-lg object-cover w-[100vh] h-[50vh]"
+                      className="rounded-lg shadow-lg object-cover w-[90vw] md:w-[100vh] h-[50vh]"
                     />
                   </div>
                 </SwiperSlide>
