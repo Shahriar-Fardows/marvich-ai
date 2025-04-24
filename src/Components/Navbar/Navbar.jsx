@@ -43,7 +43,7 @@ const Navbar = () => {
     { name: "SOLUCIONES", href: "#solutions" },
     { name: "INDUSTRIAS", href: "#industries" },
     { name: "CONTACTO", href: "#contact" },
-    { name: "PREGUNTAS FRECUENTES", href: "#faq" },
+    { name: "PREGUNTAS FRECUENTES", href: "https://marvich-ai.cl/PreguntasFre" },
   ]
 
   return (

@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useRef, useEffect } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper/modules"
@@ -38,28 +36,28 @@ const Industries = () => {
       image: image5,
       title: "Forestal",
       description: "Nuestras soluciones de monitoreo remoto del ciclo forestal cbmbina iåSinas avanzadas técnicas.",
-      buttonTitle: "Ver Más",
+      buttonTitle: "Más información",
       buttonLink: "/industries/forestal",
     },
     {
       image: image6,
       title: "Municipal y Servicios Publicos",
       description: "Ayudan a municipios y empresas a incorporar sus actividades que cuenten informacion oportuna.",
-      buttonTitle: "Ver Más",
+      buttonTitle: "Más información",
       buttonLink: "/industries/municipal",
     },
     {
       image: image7,
       title: "Construccion",
       description: "Objetivo es realizar la evaluación digital y remota del avance de una obra.",
-      buttonTitle: "Ver Más",
+      buttonTitle: "Más información",
       buttonLink: "/industries/construccion",
     },
     {
       image: image8,
-      title: "Municipal y Servicios Publicos",
-      description: "Ayudan a municipios y empresas a incorporar sus actividades que cuenten informacion oportuna.",
-      buttonTitle: "Ver Más",
+      title: "Electricidad",
+      description: "Ofresemos el servicio de monitoreo a lineas Eléctricas, ductos y vias férreas.",
+      buttonTitle: "Más información",
       buttonLink: "/industries/servicios",
     },
   ]

@@ -11,6 +11,7 @@ body {
   overflow-x: hidden;
 }
 
+
 @layer components {
   .section-title {
     @apply text-3xl font-bold mb-8 text-cyan-400;
@@ -28,6 +29,7 @@ body {
     @apply bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300;
   }
 }
+
 
 /* Custom animations to replace AOS */
 .animate-fade-in {
@@ -114,10 +116,6 @@ body {
   color: #1bbfb8 !important;
 }
 
-.solutions-swiper {
-  padding-bottom: 50px !important;
-}
-
 .solutions-swiper .swiper-slide {
   height: auto;
 }
@@ -129,4 +127,66 @@ body {
 
 .hero-image-swiper .swiper-pagination {
   bottom: 0 !important;
+}
+
+
+/* Add this to your global CSS file */
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  width: 180px;
+  height: 100px;
+}
+
+/* Left to Right animation */
+.marquee-left-to-right {
+  animation: marquee-left-to-right 30s linear infinite;
+}
+
+@keyframes marquee-left-to-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Right to Left animation */
+.marquee-right-to-left {
+  animation: marquee-right-to-left 30s linear infinite;
+}
+
+@keyframes marquee-right-to-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+.marquee-container:hover .marquee {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marquee-item {
+    width: 150px;
+    height: 80px;
+  }
 }
