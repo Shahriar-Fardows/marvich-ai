@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
           {/* <MarvichLogo className="h-12 mb-4" /> */}
-          <img className="h-12 mb-4" src={logo} alt="logo" />
+          <img className="w-60 h-10 mb-4" src={logo} alt="logo" />
 
           <p className="text-gray-400 text-center mb-6">
             Las Condes, Santiago - Chile
