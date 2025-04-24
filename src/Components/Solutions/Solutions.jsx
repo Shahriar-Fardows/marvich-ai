@@ -51,7 +51,7 @@ const Solutions = () => {
         <section id="solutions" className="py-20 bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-up">
-              <h2 className="section-title">NUESTRAS</h2>
+              <h2 className=" text-white">NUESTRAS</h2>
               <h3 className="text-4xl font-bold text-cyan-400">SOLUCIONES</h3>
             </div>
     
@@ -77,7 +77,7 @@ const Solutions = () => {
                 },
               }}
               modules={[Pagination, Navigation]}
-              className="solutions-swiper"
+              className="solutions-swiper "
             >
               {solutions.map((solution, index) => (
                 <SwiperSlide key={index}>
