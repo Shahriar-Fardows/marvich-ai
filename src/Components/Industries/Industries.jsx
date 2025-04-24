@@ -193,7 +193,7 @@ const Industries = () => {
 
           {/* Custom pagination */}
           <div className="flex justify-center mt-8">
-            <div className="industry-pagination w-fit mx-auto"></div>
+            <div className="industry-pagination !w-fit mx-auto"></div>
           </div>
         </div>
       </div>

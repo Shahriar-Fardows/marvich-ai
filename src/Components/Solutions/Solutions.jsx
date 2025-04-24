@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper/modules"
-import { Bot, Camera, Layers3, LayoutDashboard, Network ,  } from "lucide-react"
+import { Bot, Camera, Layers3, LayoutDashboard, Network, } from "lucide-react"
 import AOS from "aos";
 import "aos/dist/aos.css";
 // Import Swiper styles
@@ -11,15 +11,15 @@ import "swiper/css/navigation"
 
 const Solutions = () => {
 
-    useEffect(() => {
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-    }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   const [activeIndex, setActiveIndex] = useState(0);
-    console.log(activeIndex)
+  console.log(activeIndex)
   const swiperRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
   console.log(isMobile)
@@ -40,37 +40,37 @@ const Solutions = () => {
 
   const solutions = [
     {
-        title: "Inteligencia Artificial",
-        description:
-          "Nuestras Soluciones de AI y machine learning se aplican a datos espaciales capturados por diferentes sensores para extraer información valiosa y automatizar procesos.",
-        icon: <Bot className="w-16 h-16 text-cyan-400" />, // AI related
-      },
-      {
-        title: "Gemelos digitales BIM",
-        description:
-          "Capture solo una vez, utilice muchas veces y para diferentes aplicaciones. Creamos modelos digitales precisos de sus activos físicos para optimizar operaciones.",
-        icon: <Layers3 className="w-16 h-16 text-cyan-400" />, // BIM and 3D Models
-      },
-      {
-        title: "Ingeniería de servicios públicos",
-        description:
-          "Contamos con la mejor tecnología de identificación de infraestructura subterránea para aplicaciones de mantenimiento y planificación urbana.",
-        icon: <Network className="w-16 h-16 text-cyan-400" />, // Urban/Infra planning
-      },
-      {
-        title: "Dashboard y apps",
-        description:
-          "Hemos contruido un ecosistema modular resolver retos o problemas que van desde ...",
-        icon: <LayoutDashboard className="w-16 h-16 text-cyan-400" />, // Dashboard related
-      },
-      {
-        title: "Fotografia y lidaraerotransportado",
-        description:
-          "Nuestros servicios cubren toda la cadena deproduccion de datos espaciales ...",
-        icon: <Camera className="w-16 h-16 text-cyan-400" />, // Photography and LiDAR
-      },
-      
-    
+      title: "Inteligencia Artificial",
+      description:
+        "Nuestras Soluciones de AI y machine learning se aplican a datos espaciales capturados por diferentes sensores para extraer información valiosa y automatizar procesos.",
+      icon: <Bot className="w-16 h-16 text-cyan-400" />, // AI related
+    },
+    {
+      title: "Gemelos digitales BIM",
+      description:
+        "Capture solo una vez, utilice muchas veces y para diferentes aplicaciones. Creamos modelos digitales precisos de sus activos físicos para optimizar operaciones.",
+      icon: <Layers3 className="w-16 h-16 text-cyan-400" />, // BIM and 3D Models
+    },
+    {
+      title: "Ingeniería de servicios públicos",
+      description:
+        "Contamos con la mejor tecnología de identificación de infraestructura subterránea para aplicaciones de mantenimiento y planificación urbana.",
+      icon: <Network className="w-16 h-16 text-cyan-400" />, // Urban/Infra planning
+    },
+    {
+      title: "Dashboard y apps",
+      description:
+        "Hemos contruido un ecosistema modular resolver retos o problemas que van desde ...",
+      icon: <LayoutDashboard className="w-16 h-16 text-cyan-400" />, // Dashboard related
+    },
+    {
+      title: "Fotografia y lidaraerotransportado",
+      description:
+        "Nuestros servicios cubren toda la cadena deproduccion de datos espaciales ...",
+      icon: <Camera className="w-16 h-16 text-cyan-400" />, // Photography and LiDAR
+    },
+
+
   ]
 
   return (
@@ -182,10 +182,10 @@ const Solutions = () => {
             ))}
           </Swiper>
 
-         {/* Custom pagination */}
-<div className="flex justify-center mt-8">
-  <div className="solutions-pagination w-fit mx-auto"></div>
-</div>
+          {/* Custom pagination */}
+          <div className="flex justify-center mt-8">
+            <div className="solutions-pagination !w-fit mx-auto"></div>
+          </div>
 
         </div>
       </div>
