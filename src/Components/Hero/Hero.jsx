@@ -113,7 +113,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10 w-full">
         <div className="flex flex-col md:flex-row items-center py-10 gap-8">
           {/* Text section - animated content changes */}
-          <div className="md:w-1/2 relative">
+          <div data-aos="fade-right" className="md:w-1/2 relative">
             <div
               className={`transition-all duration-500 ${
                 textAnimation === "fadeIn"
@@ -166,7 +166,7 @@ const Hero = () => {
           </div>
 
           {/* Image section with custom navigation - Fixed dimensions */}
-          <div className="md:w-1/2 mt-10 md:mt-0 relative">
+          <div data-aos="fade-left" className="md:w-1/2 mt-10 md:mt-0 relative ">
             {/* Custom navigation arrows */}
             <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 z-20">
               <button

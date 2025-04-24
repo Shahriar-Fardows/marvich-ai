@@ -5,13 +5,22 @@ import image5 from "../../assets/image5.jpg"
 import image6 from "../../assets/image6.jpg"
 import image7 from "../../assets/image7.jpg"
 import image8 from "../../assets/image8.jpg"
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 // Import Swiper styles
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 
 const Industries = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const [activeIndex, setActiveIndex] = useState(0);
   console.log(activeIndex)
   const swiperRef = useRef(null)
@@ -152,7 +161,7 @@ const Industries = () => {
           >
             {industries.map((industry, index) => (
               <SwiperSlide key={index}>
-                <div
+                <div data-aos="zoom-in-up"
                   className="relative overflow-hidden rounded-lg group h-80 animate-fade-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >

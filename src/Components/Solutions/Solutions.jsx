@@ -2,13 +2,22 @@ import { useState, useRef, useEffect } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper/modules"
 import { Bot, Camera, Layers3, LayoutDashboard, Network ,  } from "lucide-react"
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 // Import Swiper styles
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 
 const Solutions = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    }, []);
+
   const [activeIndex, setActiveIndex] = useState(0);
     console.log(activeIndex)
   const swiperRef = useRef(null)
@@ -96,7 +105,7 @@ const Solutions = () => {
             </button>
           </div>
 
-          <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 hidden md:block">
+          <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 hidden md:block" >
             <button
               onClick={() => swiperRef.current?.swiper.slideNext()}
               className="w-10 h-10 rounded-full bg-gray-800/80 text-white flex items-center justify-center backdrop-blur-sm hover:bg-gray-700 transition-colors border border-gray-700"
@@ -154,7 +163,7 @@ const Solutions = () => {
           >
             {solutions.map((solution, index) => (
               <SwiperSlide key={index}>
-                <div
+                <div data-aos="zoom-in"
                   className="bg-gray-800 rounded-lg p-8 h-full group hover:bg-gray-700 transition-all duration-300 animate-fade-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >

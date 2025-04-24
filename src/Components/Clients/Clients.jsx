@@ -7,9 +7,19 @@ import image5 from "../../assets/clint/image5.png"
 import image6 from "../../assets/clint/image6.png"
 import image7 from "../../assets/clint/image7.jpg"
 import image8 from "../../assets/clint/image8.jpg"
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 export const Clients = () => {
   const [duplicatedClients, setDuplicatedClients] = useState([])
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   const clients = [
     { name: "CMPC", logo: image1 },
@@ -41,7 +51,7 @@ export const Clients = () => {
         </div>
 
         {/* First marquee - Left to Right */}
-        <div className="relative mb-12 overflow-hidden">
+        <div className="relative mb-12 overflow-hidden" data-aos="zoom-in-right">
           <div className="marquee-container">
             <div className="marquee marquee-left-to-right">
               {firstHalf.map((client, index) => (
@@ -61,7 +71,7 @@ export const Clients = () => {
         </div>
 
         {/* Second marquee - Right to Left */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden" data-aos="zoom-in-left">
           <div className="marquee-container">
             <div className="marquee marquee-right-to-left">
               {secondHalf.map((client, index) => (

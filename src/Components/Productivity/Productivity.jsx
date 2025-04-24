@@ -1,11 +1,23 @@
-import image4 from "../../assets/image4.jpg"
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import image4 from "../../assets/image4.jpg";
 
 const Productivity = () => {
-    return (
-        <section className="py-20 bg-gray-800">
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
+  return (
+    <section className="py-20 bg-gray-800">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center  gap-0 md:gap-12">
-          <div className="md:w-1/2 mb-10 md:mb-0 animate-fade-right">
+        <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
+          
+          {/* Text Section */}
+          <div className="md:w-1/2 mb-10 md:mb-0" data-aos="flip-left">
             <h2 className="text-3xl font-bold mb-2 text-white">TRANSFORME LA</h2>
             <h2 className="text-4xl font-bold mb-4 text-cyan-400">PRODUCTIVIDAD</h2>
             <h3 className="text-2xl font-bold mb-6 text-white">Y EL VALOR DE SUS ACTIVOS</h3>
@@ -16,14 +28,17 @@ const Productivity = () => {
             </p>
 
             <div className="bg-gray-700/50 p-4 rounded-lg border-l-4 border-cyan-500">
-              <h4 className="text-xl font-semibold mb-2 text-cyan-400">Decisiones poderosas hechas fáciles.</h4>
+              <h4 className="text-xl font-semibold mb-2 text-cyan-400">
+                Decisiones poderosas hechas fáciles.
+              </h4>
               <p className="text-gray-300">
                 Comprenda, analice y visualice los fenómenos del mundo real de acuerdo con sus ubicaciones.
               </p>
             </div>
           </div>
 
-          <div className="md:w-1/2 animate-fade-left">
+          {/* Image Section */}
+          <div className="md:w-1/2" data-aos="flip-right">
             <div className="relative rounded-lg overflow-hidden">
               <img
                 src={image4}
@@ -32,10 +47,11 @@ const Productivity = () => {
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    );
+  );
 };
 
 export default Productivity;

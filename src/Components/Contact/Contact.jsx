@@ -1,8 +1,17 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import {  Phone, Mail,  } from "lucide-react"
 import Swal from "sweetalert2"
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const Contact = () => {
-  // Form state
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -30,7 +39,7 @@ export const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
           {/* Left side - Map and Contact Info */}
-          <div className="animate-fade-right order-1 ">
+          <div className="animate-fade-right order-1 "  data-aos="fade-right">
             {/* Map at the top */}
             <div className="mb-8">
               <div className="bg-gray-700 rounded-lg h-80 overflow-hidden shadow-lg">
@@ -75,7 +84,7 @@ export const Contact = () => {
 
           {/* Right side - Contact Form */}
           <div className="animate-fade-left order-1 md:order-2">
-            <div className="bg-gray-700/30 p-4 md:p-12  rounded-lg shadow-lg backdrop-blur-sm">
+            <div className="bg-gray-700/30 p-4 md:p-12  rounded-lg shadow-lg backdrop-blur-sm"  data-aos="fade-left">
               <h4 className="text-2xl font-bold mb-6 text-white">Envíenos un mensaje</h4>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
