@@ -1,199 +1,198 @@
-import { useState, useRef, useEffect } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination, Autoplay } from "swiper/modules"
-import image5 from "../../assets/image5.jpg"
-import image6 from "../../assets/image6.jpg"
-import image7 from "../../assets/image7.jpg"
-import image8 from "../../assets/image8.jpg"
-import AOS from "aos";
-import "aos/dist/aos.css";
-// Import Swiper styles
-import "swiper/css"
-import "swiper/css/pagination"
-import "swiper/css/navigation"
+import { useState, useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { Trees } from 'lucide-react';
 
-const Industries = () => {
 
+const IndustriesSection = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
-    });
-  }, []);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  console.log(activeIndex)
-  const swiperRef = useRef(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Check if device is mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-
-    return () => {
-      window.removeEventListener("resize", checkMobile)
-    }
+    })
   }, [])
 
+  // State for managing expanded industry
+  const [expandedIndustry, setExpandedIndustry] = useState(null)
+
+  // Toggle expanded industry
+  const toggleIndustry = (index) => {
+    if (expandedIndustry === index) {
+      setExpandedIndustry(null)
+    } else {
+      setExpandedIndustry(index)
+    }
+  }
+
+  // Industry data
   const industries = [
     {
-      image: image5,
       title: "Forestal",
-      description: "Nuestras soluciones de monitoreo remoto del ciclo forestal cbmbina iåSinas avanzadas técnicas.",
-      buttonTitle: "Más información",
-      buttonLink: "/industries/forestal",
+      description: "IA geoespacial para optimizar el ciclo forestal completo mediante detección automática.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-12 h-12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M17 14v-4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v4" />
+          <path d="M12 14v4" />
+          <path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v0a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v0Z" />
+          <path d="M12 6v4" />
+          <path d="M7.5 10h9" />
+        </svg>
+      ),
     },
     {
-      image: image6,
-      title: "Municipal y Servicios Publicos",
-      description: "Ayudan a municipios y empresas a incorporar sus actividades que cuenten informacion oportuna.",
-      buttonTitle: "Más información",
-      buttonLink: "/industries/municipal",
+      title: "Agricultura regenerativa",
+      description: "IA geoespacial para monitoreo continuo de suelos y cultivos.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-12 h-12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v.3a2 2 0 0 1-.2.9L19 14.2a2 2 0 0 1-1.8 1.1H6.8a2 2 0 0 1-1.8-1.1L3.2 10.2a2 2 0 0 1-.2-.9V9Z" />
+          <path d="M10 14.2V20" />
+          <path d="M14 14.2V20" />
+          <path d="M12 4v4" />
+          <path d="M10 4h4" />
+        </svg>
+      ),
     },
     {
-      image: image7,
-      title: "Construccion",
-      description: "Objetivo es realizar la evaluación digital y remota del avance de una obra.",
-      buttonTitle: "Más información",
-      buttonLink: "/industries/construccion",
+      title: "Servicios públicos",
+      description: "Localización y gestión de infraestructura soterrada con IA y RA.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-12 h-12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M18 5V4a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1" />
+          <path d="M18 9V5H6v4" />
+          <path d="M18 13v-4H6v4" />
+          <path d="M18 17v-4H6v4" />
+          <path d="M18 21v-4H6v4" />
+          <path d="M18 21a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1" />
+        </svg>
+      ),
     },
     {
-      image: image8,
-      title: "Electricidad",
-      description: "Ofresemos el servicio de monitoreo a lineas Eléctricas, ductos y vias férreas.",
-      buttonTitle: "Más información",
-      buttonLink: "/industries/servicios",
+      title: "Minería y energía",
+      description: "Análisis de operaciones mineras y energéticas.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-12 h-12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M8 18v-2h8v2" />
+          <path d="M12 18v4" />
+          <path d="M2 6h20v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6Z" />
+          <path d="M18 12a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2" />
+          <path d="M22 6 12 2 2 6" />
+        </svg>
+      ),
     },
   ]
 
   return (
-    <section id="industries" className="py-20 bg-gray-800">
+    <section id="industries" className="py-20 bg-[#1f2937]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-white">INDUSTRIAS QUE</h2>
-          <h3 className="text-4xl font-bold text-cyan-400">APOYAMOS</h3>
-        </div>
-
-        <div className="relative">
-          {/* Custom navigation arrows */}
-          <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 hidden md:block">
-            <button
-              onClick={() => swiperRef.current?.swiper.slidePrev()}
-              className="w-10 h-10 rounded-full bg-gray-800/80 text-white flex items-center justify-center backdrop-blur-sm hover:bg-gray-700 transition-colors border border-gray-700"
-              aria-label="Previous slide"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left column - Title and description */}
+          <div className="" data-aos="fade-right">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#22d3ee] mb-6">
+              Monitoreo continuo que mejora la eficiencia operativa
+            </h2>
+            <p className="text-white mb-8">
+              IA para la gestión precisa y eficiente de recursos, transformando grandes volúmenes de datos en decisiones
+              inmediatas y sostenibles.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center text-cyan-600 font-medium hover:text-cyan-700 transition-colors"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m15 18-6-6 6-6" />
+              Learn more about our solutions
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fillRule="evenodd"
+                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
               </svg>
-            </button>
+            </a>
           </div>
 
-          <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 hidden md:block">
-            <button
-              onClick={() => swiperRef.current?.swiper.slideNext()}
-              className="w-10 h-10 rounded-full bg-gray-800/80 text-white flex items-center justify-center backdrop-blur-sm hover:bg-gray-700 transition-colors border border-gray-700"
-              aria-label="Next slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </button>
-          </div>
-
-          <Swiper
-            ref={swiperRef}
-            slidesPerView={1}
-            spaceBetween={20}
-            centeredSlides={false}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-              el: ".industry-pagination",
-              bulletClass: "w-3 h-3 rounded-full bg-gray-600 inline-block mx-1 cursor-pointer transition-colors",
-              bulletActiveClass: "!bg-cyan-500",
-            }}
-            navigation={false}
-            modules={[Autoplay, Pagination, Navigation]}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-            }}
-            className="industries-swiper"
-          >
-            {industries.map((industry, index) => (
-              <SwiperSlide key={index}>
-                <div data-aos="zoom-in-up"
-                  className="relative overflow-hidden rounded-lg group h-80 animate-fade-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
+          {/* Right column - Industries list */}
+          <div className="">
+            <div className="space-y-6">
+              {industries.map((industry, index) => (
+                <div
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                  className="border-b border-gray-200 pb-6 last:border-0"
                 >
-                  <img
-                    src={industry.image || "/placeholder.svg"}
-                    alt={industry.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mr-6 text-cyan-400">{industry.icon}</div>
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-semibold text-[#22d3ee] mb-2">{industry.title}</h3>
+                      <p className="text-white mb-3">{industry.description}</p>
+                      <button
+                        onClick={() => toggleIndustry(index)}
+                        className="inline-flex items-center text-cyan-400 hover:text-cyan-700 transition-colors"
+                      >
+                        Click here for more information
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className={`h-4 w-4 ml-1 transition-transform duration-300 ${expandedIndustry === index ? "rotate-90" : ""}`}
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
 
-                  {/* Content overlay - always visible on mobile, visible on hover for desktop */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent 
-                    ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"} 
-                    transition-opacity duration-300 flex flex-col justify-end p-6`}
-                  >
-                    <h4 className="text-white text-xl font-bold mb-2">{industry.title}</h4>
-                    <p className="text-gray-300 mb-4 text-sm">{industry.description}</p>
-                    <a
-                      href={industry.buttonLink}
-                      className="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 inline-block w-fit"
-                    >
-                      {industry.buttonTitle}
-                    </a>
+                      {/* Expanded content */}
+                      {expandedIndustry === index && (
+                        <div className="mt-4 pl-4 border-l-2 border-cyan-500 text-gray-600 animate-fadeIn">
+                          <p>
+                            Utilizamos tecnología de vanguardia para proporcionar soluciones personalizadas que
+                            optimizan sus operaciones y mejoran la toma de decisiones.
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Custom pagination */}
-          <div className="flex justify-center mt-8">
-            <div className="industry-pagination !w-fit mx-auto"></div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -201,4 +200,4 @@ const Industries = () => {
   )
 }
 
-export default Industries
+export default IndustriesSection

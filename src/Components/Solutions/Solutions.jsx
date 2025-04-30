@@ -1,196 +1,156 @@
-import { useState, useRef, useEffect } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination, Autoplay } from "swiper/modules"
-import { Bot, Camera, Layers3, LayoutDashboard, Network, } from "lucide-react"
-import AOS from "aos";
-import "aos/dist/aos.css";
-// Import Swiper styles
-import "swiper/css"
-import "swiper/css/pagination"
-import "swiper/css/navigation"
 
-const Solutions = () => {
 
+import { useState, useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { Link } from "react-router-dom"
+
+const AISection = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
-    });
-  }, []);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  console.log(activeIndex)
-  const swiperRef = useRef(null)
-  const [isMobile, setIsMobile] = useState(false)
-  console.log(isMobile)
-
-  // Check if device is mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-
-    return () => {
-      window.removeEventListener("resize", checkMobile)
-    }
+    })
   }, [])
 
-  const solutions = [
-    {
-      title: "Inteligencia Artificial",
-      description:
-        "Nuestras Soluciones de AI y machine learning se aplican a datos espaciales capturados por diferentes sensores para extraer información valiosa y automatizar procesos.",
-      icon: <Bot className="w-16 h-16 text-cyan-400" />, // AI related
-    },
-    {
-      title: "Gemelos digitales BIM",
-      description:
-        "Capture solo una vez, utilice muchas veces y para diferentes aplicaciones. Creamos modelos digitales precisos de sus activos físicos para optimizar operaciones.",
-      icon: <Layers3 className="w-16 h-16 text-cyan-400" />, // BIM and 3D Models
-    },
-    {
-      title: "Ingeniería de servicios públicos",
-      description:
-        "Contamos con la mejor tecnología de identificación de infraestructura subterránea para aplicaciones de mantenimiento y planificación urbana.",
-      icon: <Network className="w-16 h-16 text-cyan-400" />, // Urban/Infra planning
-    },
-    {
-      title: "Dashboard y apps",
-      description:
-        "Hemos contruido un ecosistema modular resolver retos o problemas que van desde ...",
-      icon: <LayoutDashboard className="w-16 h-16 text-cyan-400" />, // Dashboard related
-    },
-    {
-      title: "Fotografia y lidaraerotransportado",
-      description:
-        "Nuestros servicios cubren toda la cadena deproduccion de datos espaciales ...",
-      icon: <Camera className="w-16 h-16 text-cyan-400" />, // Photography and LiDAR
-    },
+  // State for managing dropdown visibility
+  const [openDropdown, setOpenDropdown] = useState(null)
 
+  // Toggle dropdown function
+  const toggleDropdown = (index) => {
+    if (openDropdown === index) {
+      setOpenDropdown(null)
+    } else {
+      setOpenDropdown(index)
+    }
+  }
 
+  // Content for the three cards based on client requirements
+  const cards = [
+    {
+      title: "Qué procesamos",
+      description: "Capturamos y procesamos datos geoespaciales de múltiples sensores:",
+      image: "https://cdn.sanity.io/images/hvd5n54p/production/74fa61adf60d257013c87faa56b522df2e7b0503-700x700.jpg?w=307&auto=format",
+      caption: "Imágenes satelitales y datos geoespaciales",
+      dropdownContent: [
+        "Imágenes satelitales ópticas e hiperespectrales",
+        "Ortofotos",
+        "LIDAR",
+        "Radar GPR",
+        "Imágenes 360",
+      ],
+      
+    },
+    {
+      title: "Cómo lo hacemos",
+      description:
+        "Usamos modelos de deep learning entrenados para detectar, clasificar y vectorizar automáticamente objetos y cambios en el terreno",
+      image: "https://cdn.sanity.io/images/hvd5n54p/production/8f91fd0dd656a31b2861a8fe1af756dc252dff14-480x480.jpg?w=307&auto=format",
+      caption: "Procesamiento con inteligencia artificial",
+      dropdownContent: [
+        "Desde pequeños plantines hasta grandes infraestructuras",
+        "Procesamiento masivo en minutos u horas",
+        "Fusión de datos multifuente",
+      ],
+      
+    },
+    {
+      title: "Para qué lo hacemos",
+      description: "Para que puedas tomar decisiones inteligentes, rápidas y sostenibles",
+      image: "https://cdn.sanity.io/images/hvd5n54p/production/4c120115b62a94c8be06330d3302d59cbb01a842-683x683.png?w=307&auto=format",
+      caption: "Visualización de datos y análisis",
+      dropdownContent: [
+        "Visualización en dashboards interactivos",
+        "Alertas tempranas",
+        "Análisis por API integrada",
+        "Automatización de reportes y acciones correctivas",
+      ],
+      
+    },
   ]
 
   return (
-    <section id="solutions" className="py-20 bg-gray-900">
+    <section id="ai-section" className="py-20 bg-black">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-white">NUESTRAS</h2>
-          <h3 className="text-4xl font-bold text-cyan-400">SOLUCIONES</h3>
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white max-w-4xl mx-auto leading-tight">
+            Automatizamos el monitoreo remoto geoespacial con inteligencia artificial
+          </h2>
         </div>
 
-        <div className="relative">
-          {/* Custom navigation arrows */}
-          <div className="absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 hidden md:block">
-            <button
-              onClick={() => swiperRef.current?.swiper.slidePrev()}
-              className="w-10 h-10 rounded-full bg-gray-800/80 text-white flex items-center justify-center backdrop-blur-sm hover:bg-gray-700 transition-colors border border-gray-700"
-              aria-label="Previous slide"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              data-aos="zoom-in"
+              className="flex flex-col h-full"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m15 18-6-6 6-6" />
-              </svg>
-            </button>
-          </div>
+              <h3 className="text-2xl font-bold mb-4 text-cyan-400">
+                {index === 0 ? "Look broader." : index === 1 ? "Look closer." : "Look deeper."}
+              </h3>
 
-          <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 hidden md:block" >
-            <button
-              onClick={() => swiperRef.current?.swiper.slideNext()}
-              className="w-10 h-10 rounded-full bg-gray-800/80 text-white flex items-center justify-center backdrop-blur-sm hover:bg-gray-700 transition-colors border border-gray-700"
-              aria-label="Next slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </button>
-          </div>
+              <div className="relative overflow-hidden rounded-xl border-2 border-cyan-400 flex-grow mb-4">
+                <img
+                  src={card.image || "/placeholder.svg"}
+                  alt={card.title}
+                  className="w-full h-80 object-cover transition-transform duration-500 hover:scale-110"
+                />
 
-          <Swiper
-            ref={swiperRef}
-            slidesPerView={1}
-            spaceBetween={20}
-            centeredSlides={false}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-              el: ".solutions-pagination",
-              bulletClass: "w-3 h-3 rounded-full bg-gray-600 inline-block mx-1 cursor-pointer transition-colors",
-              bulletActiveClass: "!bg-cyan-500",
-            }}
-            navigation={false}
-            modules={[Autoplay, Pagination, Navigation]}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            breakpoints={{
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-            }}
-            className="solutions-swiper"
-          >
-            {solutions.map((solution, index) => (
-              <SwiperSlide key={index}>
-                <div data-aos="zoom-in"
-                  className="bg-gray-800 rounded-lg p-8 h-full group hover:bg-gray-700 transition-all duration-300 animate-fade-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex flex-col items-center text-center h-full">
-                    <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                      {solution.icon}
-                    </div>
-                    <h4 className="text-xl font-bold mb-4 text-white">{solution.title}</h4>
-                    <p className="text-gray-300 mb-6 flex-grow">{solution.description}</p>
-                    <button className="mt-auto bg-gray-700 hover:bg-gray-600 text-cyan-400 font-medium py-2 px-4 rounded-md transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white">
-                      Más Información
-                    </button>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
+                  <div className="p-6 w-full">
+                    <h4 className="text-xl font-bold text-white mb-2">{card.title}</h4>
+                    <p className="text-gray-300 text-sm">{card.caption}</p>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              </div>
 
-          {/* Custom pagination */}
-          <div className="flex justify-center mt-8">
-            <div className="solutions-pagination !w-fit mx-auto"></div>
-          </div>
+              {/* Description text below the image */}
+              <p className="text-gray-300 mb-4">{card.description}</p>
 
+              {/* Dropdown button */}
+              <div className="relative w-full mt-auto">
+                <button
+                  onClick={() => toggleDropdown(index)}
+                  className="w-full bg-gray-800 hover:bg-gray-700 text-cyan-400 font-medium py-3 px-4 rounded-md transition-all duration-300 hover:text-white flex items-center justify-between group"
+                >
+                  <span>Más información</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-5 w-5 transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""} group-hover:text-white`}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown content */}
+                {openDropdown === index && (
+                  <div className="absolute z-10 w-full mt-2 bg-gray-800 rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out">
+                    <ul className="space-y-2">
+                      {card.dropdownContent.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-gray-200 flex items-start">
+                          <span className="text-cyan-400 mr-2">•</span>
+                        
+                         <span>{item}</span>
+                         
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
 
-export default Solutions
+export default AISection

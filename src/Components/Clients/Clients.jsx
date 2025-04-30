@@ -43,7 +43,7 @@ export const Clients = () => {
   const secondHalf = duplicatedClients.slice(Math.ceil(duplicatedClients.length / 2))
 
   return (
-    <section className="py-20 bg-gray-900 overflow-hidden">
+    <section className="py-20 bg-[#1f2937] overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-white">NUESTROS</h2>

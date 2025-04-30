@@ -1,17 +1,16 @@
-import {  Phone, Mail,  } from "lucide-react"
+import { Phone, Mail } from "lucide-react"
 import Swal from "sweetalert2"
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export const Contact = () => {
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
-    });
-  }, []);
+    })
+  }, [])
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -30,16 +29,16 @@ export const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-800">
+    <section id="contact" className="py-20 bg-[#1b374b]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-white">CONTACTO</h2>
-          <h3 className="text-4xl font-bold text-cyan-400">HABLEMOS</h3>
+          <h3 className="text-4xl font-bold text-cyan-400">¿Listo para transformar tu operación con IA geoespacial?</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
           {/* Left side - Map and Contact Info */}
-          <div className="animate-fade-right order-1 "  data-aos="fade-right">
+          <div className="animate-fade-right order-1" data-aos="fade-right">
             {/* Map at the top */}
             <div className="mb-8">
               <div className="bg-gray-700 rounded-lg h-80 overflow-hidden shadow-lg">
@@ -84,48 +83,57 @@ export const Contact = () => {
 
           {/* Right side - Contact Form */}
           <div className="animate-fade-left order-1 md:order-2">
-            <div className="bg-gray-700/30 p-4 md:p-12  rounded-lg shadow-lg backdrop-blur-sm"  data-aos="fade-left">
+            <div className="bg-gray-700/30 p-4 md:p-12 rounded-lg shadow-lg backdrop-blur-sm" data-aos="fade-left">
               <h4 className="text-2xl font-bold mb-6 text-white">Envíenos un mensaje</h4>
               <form className="space-y-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                    Nombre y Apellido
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                      placeholder="Su nombre"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                      placeholder="Su email"
-                      required
-                    />
-                  </div>
-                </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
-                  Website
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                    Nombre
                   </label>
                   <input
                     type="text"
-                    id="subject"
+                    id="name"
                     className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                    placeholder="Asunto del mensaje"
+                    placeholder="Su nombre"
                     required
                   />
                 </div>
-                
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
+                    Empresa
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    placeholder="Su empresa"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="position" className="block text-sm font-medium text-gray-300 mb-1">
+                    Cargo
+                  </label>
+                  <input
+                    type="text"
+                    id="position"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    placeholder="Su cargo"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                    placeholder="Su email"
+                    required
+                  />
+                </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                     Mensaje
@@ -138,12 +146,19 @@ export const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                <div>
+                <div className="flex flex-col space-y-4">
                   <button
                     type="submit"
-                    className="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-3 px-6 rounded-md transition-all duration-300 w-full md:w-auto"
+                    className="bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-3 px-6 rounded-md transition-all duration-300 w-full"
                   >
                     Enviar Mensaje
+                  </button>
+                  <button
+                    type="button"
+                    className="bg-white hover:bg-gray-100 text-cyan-700 font-medium py-3 px-6 rounded-md transition-all duration-300 w-full border-2 border-cyan-500"
+                    onClick={() => window.open("https://calendly.com/your-link", "_blank")}
+                  >
+                    Agenda tu reunión gratuita con un especialista
                   </button>
                 </div>
               </form>
