@@ -33,7 +33,7 @@ const GeospatialHero = () => {
   return (
     <section className="w-full bg-black py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-5xl mx-auto md:text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Main title with animation */}
           <h1
             className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
