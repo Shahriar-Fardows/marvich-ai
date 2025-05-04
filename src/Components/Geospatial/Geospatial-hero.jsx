@@ -15,7 +15,7 @@ const GeospatialHero = () => {
     <section className="w-full bg-black py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden min-h-screen flex items-center">
       {/* Single background image */}
       <div
-        className="absolute inset-0 w-full h-full opacity-40"
+        className="absolute inset-0 w-full h-full opacity-60"
         style={{
           backgroundImage: `url(${image2 || "/placeholder.svg"})`,
           backgroundSize: "cover",
@@ -35,13 +35,11 @@ const GeospatialHero = () => {
             data-aos="fade-right"
           >
             <span className="block mb-2 sm:mb-3">Tu ventaja estratégica:</span>
-            <span className="block mb-2 sm:mb-3">datos geoespaciales que se</span>
-
-            {/* Highlighted text with responsive sizing */}
-            <span className="text-cyan-400 block my-3 sm:my-4 md:my-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold tracking-tight">
-              convierten en
+             {/* Highlighted text with responsive sizing */}
+             <span className="text-cyan-400 block my-3 sm:my-4 md:my-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold tracking-tight">
+             datos geoespaciales
             </span>
-
+            <span className="block mb-2 sm:mb-3"> que se convierten en</span>
             <span className="block">acciones concretas.</span>
           </h1>
 
