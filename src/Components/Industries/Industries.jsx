@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react"
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { Trees } from 'lucide-react';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect, useState } from "react";
 
 
 const IndustriesSection = () => {
@@ -122,7 +121,7 @@ const IndustriesSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left column - Title and description */}
-          <div className="" data-aos="fade-right">
+          <div className="" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-[#22d3ee] mb-6">
               Monitoreo continuo que mejora la eficiencia operativa
             </h2>

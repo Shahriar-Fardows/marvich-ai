@@ -1,8 +1,8 @@
-import image9 from '../../assets/image9.png'
-import image10 from '../../assets/image10.png'
-import { useState, useEffect } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { useEffect, useState } from "react"
+import image10 from '../../assets/image10.png'
+import image9 from '../../assets/image9.png'
 
 const AboutUsSection = () => {
   useEffect(() => {
@@ -94,7 +94,7 @@ const AboutUsSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left column - Who we are */}
-          <div className="lg:col-span-5" data-aos="fade-right">
+          <div className="lg:col-span-5" data-aos="fade-up">
             <div className="bg-white rounded-xl shadow-lg p-8 h-full">
               <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                 <span className="text-cyan-500 mr-3">
@@ -170,7 +170,7 @@ const AboutUsSection = () => {
           </div>
 
           {/* Right column - Mission, Vision, Values */}
-          <div className="lg:col-span-7" data-aos="fade-left">
+          <div className="lg:col-span-7" data-aos="fade-up">
             <div className="bg-white rounded-xl shadow-lg p-8 h-full">
               {/* Tabs */}
               <div className="flex border-b border-gray-200 mb-8">

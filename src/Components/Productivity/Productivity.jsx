@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
 import image4 from "../../assets/image4.jpg";
 
 const Productivity = () => {
@@ -17,7 +17,7 @@ const Productivity = () => {
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-12">
           
           {/* Text Section */}
-          <div className="md:w-1/2 mb-10 md:mb-0" data-aos="flip-left">
+          <div className="md:w-1/2 mb-10 md:mb-0" data-aos="fade-up">
             <h2 className="text-3xl font-bold mb-2 text-white">TRANSFORME LA</h2>
             <h2 className="text-4xl font-bold mb-4 text-cyan-400">PRODUCTIVIDAD</h2>
             <h3 className="text-2xl font-bold mb-6 text-white">Y EL VALOR DE SUS ACTIVOS</h3>
@@ -38,7 +38,7 @@ const Productivity = () => {
           </div>
 
           {/* Image Section */}
-          <div className="md:w-1/2" data-aos="flip-right">
+          <div className="md:w-1/2" data-aos="fade-up">
             <div className="relative rounded-lg overflow-hidden">
               <img
                 src={image4}
