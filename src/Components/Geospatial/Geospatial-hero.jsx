@@ -1,13 +1,35 @@
-import { useEffect } from "react"
+"use client"
+
+import { useEffect, useState } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import image1 from "../../assets/tran1.png"
+import image2 from "../../assets/tran2.png"
 
 const GeospatialHero = () => {
+  const [activeImage, setActiveImage] = useState(0)
+  const [fadeIn, setFadeIn] = useState(true)
+  const images = [image1, image2]
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
     })
+
+    // Image rotation timer
+    const interval = setInterval(() => {
+      // First fade out
+      setFadeIn(false)
+
+      // Then change image after fade out completes
+      setTimeout(() => {
+        setActiveImage((prev) => (prev === 0 ? 1 : 0))
+        setFadeIn(true)
+      }, 500)
+    }, 5000) // Change image every 5 seconds
+
+    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -39,6 +61,42 @@ const GeospatialHero = () => {
             Capture, comprenda, analice y visualice los fenómenos del mundo real para impulsar decisiones inteligentes
             de acuerdo con sus ubicaciones.
           </p>
+
+          {/* Image box with the requested design */}
+          <div className="mt-12 sm:mt-16 md:mt-20 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+            <div className="relative overflow-hidden rounded-xl border-2 border-cyan-400 flex-grow mb-4 h-80 md:h-96">
+              {/* Image container */}
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={images[activeImage] || "/placeholder.svg"}
+                  alt={`Geospatial visualization ${activeImage + 1}`}
+                  className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                    fadeIn ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              </div>
+
+              {/* Image indicators */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setFadeIn(false)
+                      setTimeout(() => {
+                        setActiveImage(index)
+                        setFadeIn(true)
+                      }, 500)
+                    }}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      activeImage === index ? "bg-cyan-400 w-6" : "bg-white/50"
+                    }`}
+                    aria-label={`View image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
