@@ -1,9 +1,24 @@
-
+"use client"
 
 import { useState, useEffect } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { Link } from "react-router-dom"
+
+// Import images as organized by client
+import image1 from "../../assets/part2/comolohacemos/image1.png"
+import image2 from "../../assets/part2/comolohacemos/image2.png"
+import image3 from "../../assets/part2/comolohacemos/image3.png"
+import image4 from "../../assets/part2/comolohacemos/image4.png"
+import image5 from "../../assets/part2/paraquelohacemos/image1.png"
+import image6 from "../../assets/part2/paraquelohacemos/image2.png"
+import image7 from "../../assets/part2/paraquelohacemos/image3.png"
+import image8 from "../../assets/part2/paraquelohacemos/image4.png"
+import image9 from "../../assets/part2/paraquelohacemos/image5.png"
+import image10 from "../../assets/part2/queprocesamos/image1.png"
+import image11 from "../../assets/part2/queprocesamos/image2.png"
+import image12 from "../../assets/part2/queprocesamos/image3.png"
+import image13 from "../../assets/part2/queprocesamos/image4.png"
+import image14 from "../../assets/part2/queprocesamos/image5.png"
 
 const AISection = () => {
   useEffect(() => {
@@ -16,6 +31,17 @@ const AISection = () => {
   // State for managing dropdown visibility
   const [openDropdown, setOpenDropdown] = useState(null)
 
+  // States for image slideshows
+  const [currentImageIndices, setCurrentImageIndices] = useState([0, 0, 0])
+  const [fadeIn, setFadeIn] = useState([true, true, true])
+
+  // Image arrays for each section
+  const sectionImages = [
+    [image10, image11, image12, image13, image14], // Que procesamos
+    [image1, image2, image3, image4], // Como lo hacemos
+    [image5, image6, image7, image8, image9], // Para que lo hacemos
+  ]
+
   // Toggle dropdown function
   const toggleDropdown = (index) => {
     if (openDropdown === index) {
@@ -25,12 +51,45 @@ const AISection = () => {
     }
   }
 
+  // Effect to handle image transitions for all three sections
+  useEffect(() => {
+    const transitionIntervals = sectionImages.map((images, sectionIndex) => {
+      return setInterval(() => {
+        // Start fade out for this section
+        setFadeIn((prev) => {
+          const newFadeIn = [...prev]
+          newFadeIn[sectionIndex] = false
+          return newFadeIn
+        })
+
+        // After fade out completes, change image and start fade in
+        setTimeout(() => {
+          setCurrentImageIndices((prev) => {
+            const newIndices = [...prev]
+            newIndices[sectionIndex] = (prev[sectionIndex] + 1) % images.length
+            return newIndices
+          })
+
+          setFadeIn((prev) => {
+            const newFadeIn = [...prev]
+            newFadeIn[sectionIndex] = true
+            return newFadeIn
+          })
+        }, 1000) // This should match the transition duration in CSS
+      }, 5000) // Change image every 5 seconds
+    })
+
+    // Clear all intervals on component unmount
+    return () => {
+      transitionIntervals.forEach((interval) => clearInterval(interval))
+    }
+  }, [])
+
   // Content for the three cards based on client requirements
   const cards = [
     {
       title: "Qué procesamos",
       description: "Capturamos y procesamos datos geoespaciales de múltiples sensores:",
-      image: "https://cdn.sanity.io/images/hvd5n54p/production/74fa61adf60d257013c87faa56b522df2e7b0503-700x700.jpg?w=307&auto=format",
       caption: "Imágenes satelitales y datos geoespaciales",
       dropdownContent: [
         "Imágenes satelitales ópticas e hiperespectrales",
@@ -39,25 +98,21 @@ const AISection = () => {
         "Radar GPR",
         "Imágenes 360",
       ],
-      
     },
     {
       title: "Cómo lo hacemos",
       description:
         "Usamos modelos de deep learning entrenados para detectar, clasificar y vectorizar automáticamente objetos y cambios en el terreno",
-      image: "https://cdn.sanity.io/images/hvd5n54p/production/8f91fd0dd656a31b2861a8fe1af756dc252dff14-480x480.jpg?w=307&auto=format",
       caption: "Procesamiento con inteligencia artificial",
       dropdownContent: [
         "Desde pequeños plantines hasta grandes infraestructuras",
         "Procesamiento masivo en minutos u horas",
         "Fusión de datos multifuente",
       ],
-      
     },
     {
       title: "Para qué lo hacemos",
       description: "Para que puedas tomar decisiones inteligentes, rápidas y sostenibles",
-      image: "https://cdn.sanity.io/images/hvd5n54p/production/4c120115b62a94c8be06330d3302d59cbb01a842-683x683.png?w=307&auto=format",
       caption: "Visualización de datos y análisis",
       dropdownContent: [
         "Visualización en dashboards interactivos",
@@ -65,7 +120,6 @@ const AISection = () => {
         "Análisis por API integrada",
         "Automatización de reportes y acciones correctivas",
       ],
-      
     },
   ]
 
@@ -86,16 +140,20 @@ const AISection = () => {
               className="flex flex-col h-full"
               style={{ animationDelay: `${index * 100}ms` }}
             >
+              {/* Updated titles as per client requirements */}
               <h3 className="text-2xl font-bold mb-4 text-cyan-400">
-                {index === 0 ? "Look broader." : index === 1 ? "Look closer." : "Look deeper."}
+                {index === 0 ? "Que procesamos" : index === 1 ? "Como lo hacemos" : "Para que lo hacemos"}
               </h3>
 
-              <div className="relative overflow-hidden rounded-xl border-2 border-cyan-400 flex-grow mb-4">
-                <img
-                  src={card.image || "/placeholder.svg"}
-                  alt={card.title}
-                  className="w-full h-80 object-cover transition-transform duration-500 hover:scale-110"
-                />
+              <div className="relative overflow-hidden rounded-xl border-2 border-cyan-400 flex-grow mb-4 h-80">
+                {/* Image slideshow for each section */}
+                <div className="absolute inset-0 w-full h-full">
+                  <img
+                    src={sectionImages[index][currentImageIndices[index]] || "/placeholder.svg"}
+                    alt={card.title}
+                    className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${fadeIn[index] ? "opacity-100" : "opacity-0"}`}
+                  />
+                </div>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
                   <div className="p-6 w-full">
@@ -129,21 +187,20 @@ const AISection = () => {
                   </svg>
                 </button>
 
-                {/* Dropdown content */}
+                {/* Dropdown content with fixed z-index to ensure it appears above other elements */}
                 {openDropdown === index && (
-                  <div className="absolute z-10 w-full mt-2 bg-gray-800 rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out">
-                    <ul className="space-y-2">
-                      {card.dropdownContent.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-gray-200 flex items-start">
-                          <span className="text-cyan-400 mr-2">•</span>
-                        
-                         <span>{item}</span>
-                         
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+  <div className="absolute z-50 w-full bottom-full mb-2 bg-gray-800 rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out">
+    <ul className="space-y-2">
+      {card.dropdownContent.map((item, itemIndex) => (
+        <li key={itemIndex} className="text-gray-200 flex items-start">
+          <span className="text-cyan-400 mr-2">•</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
               </div>
             </div>
           ))}

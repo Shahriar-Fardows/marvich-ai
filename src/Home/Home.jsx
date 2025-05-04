@@ -1,4 +1,3 @@
-import React from 'react';
 import Hero from '../Components/Hero/Hero';
 import Solutions from '../Components/Solutions/Solutions';
 import Industries from '../Components/Industries/Industries';
