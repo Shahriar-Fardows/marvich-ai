@@ -5,11 +5,13 @@ import Clients from '../Components/Clients/Clients';
 import { Contact } from '../Components/Contact/Contact';
 import AboutUsSection from '../Components/AboutUs/AboutUs';
 import Testimonials from '../Components/Testimonials/Testimonials';
+import GeospatialHero from '../Components/Geospatial/Geospatial-hero';
 
 const Home = () => {
     return (
         <div>
             <Hero/>
+            <GeospatialHero/>
             <Solutions/>
             <Industries/>
             <AboutUsSection/>
