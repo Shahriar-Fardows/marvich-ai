@@ -29,7 +29,7 @@ const ForestalPage = () => {
   return (
     <div className="bg-[#f8fafc]">
       {/* Hero Section with Background Image */}
-      <section className="relative h-[60vh] flex items-center">
+      <section className="relative h-[60vh] min-h-[60vh] flex items-center pt-32 pb-20">
         <div className="absolute inset-0 z-0">
           <img
             src={imageBanner || "/placeholder.svg"}
@@ -211,45 +211,34 @@ const ForestalPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[#1f2937] text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6" data-aos="fade-up">
-            Solicita un diagnóstico gratuito
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Descubre cómo optimizar tu operación forestal con Marvich AI.
-          </p>
-          <button
-            onClick={goToContact}
-            className="bg-[#22d3ee] hover:bg-[#0ea5e9] text-white font-medium py-3 px-8 rounded-md transition-colors"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            CONTACTANOS
-          </button>
-        </div>
-      </section>
+      <section
+  className="py-16 bg-[#1f2937] text-white bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${image6 || "/placeholder.svg"})`,
+  }}
+>
+  <div className="container mx-auto px-4 text-center bg-black/60 p-6 rounded-md">
+    <h2 className="text-3xl font-bold mb-6" data-aos="fade-up">
+      Transforma tu agricultura con tecnología de vanguardia
+    </h2>
+    <p
+      className="text-xl text-white/80 mb-8 max-w-2xl mx-auto"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      Solicita una consulta personalizada y descubre cómo nuestras soluciones pueden optimizar tus cultivos.
+    </p>
+    <button
+      onClick={goToContact}
+      className="bg-[#22d3ee] hover:bg-[#0ea5e9] text-white font-medium py-3 px-8 rounded-md transition-colors"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      CONTACTANOS
+    </button>
+  </div>
+</section>
 
-      {/* Bottom Image */}
-      <div className="w-full h-64">
-        <img src={image6 || "/placeholder.svg"} alt="Forestal inferior" className="w-full h-full object-cover" />
-      </div>
-
-      {/* Back to Services */}
-      <div className="bg-white py-8">
-        <div className="container mx-auto px-4">
-          <Link to="/" className="inline-flex items-center text-[#22d3ee] hover:text-[#0ea5e9] transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path
-                fillRule="evenodd"
-                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Volver a servicios
-          </Link>
-        </div>
-      </div>
     </div>
   )
 }

@@ -1,9 +1,13 @@
+"use client"
 
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
+import image1 from "../../../assets/agricultura/image1.png"
+import image2 from "../../../assets/agricultura/image2.png"
+import image5 from "../../../assets/agricultura/inferior.png"
+import imageBanner from "../../../assets/agricultura/superior.png"
 
 const AgriculturaPage = () => {
   useEffect(() => {
@@ -16,20 +20,19 @@ const AgriculturaPage = () => {
     window.scrollTo(0, 0)
   }, [])
 
-   const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const goToContact = () => {
-    navigate("/", { state: { scrollTo: "contact" } });
-  };
-
+    navigate("/", { state: { scrollTo: "contact" } })
+  }
 
   return (
     <div className="bg-[#f8fafc]">
       {/* Hero Section with Background Image */}
-      <section className="relative h-[60vh] flex items-center">
+      <section className="relative h-[60vh] min-h-[60vh] flex items-center pt-32 pb-20">
         <div className="absolute inset-0 z-0">
           <img
-            src="/placeholder.svg?height=800&width=1600"
+            src={imageBanner || "/placeholder.svg"}
             alt="Agricultura regenerativa"
             className="w-full h-full object-cover"
           />
@@ -44,12 +47,12 @@ const AgriculturaPage = () => {
             <p className="text-xl text-white/90 mb-8">
               Optimiza tus cultivos y regenera tus suelos con monitoreo continuo basado en IA geoespacial.
             </p>
-             <button
-      onClick={goToContact}
-      className="bg-[#22d3ee] hover:bg-[#0ea5e9] text-white font-medium py-3 px-8 rounded-md transition-colors"
-    >
-      CONTACTANOS
-    </button>
+            <button
+              onClick={goToContact}
+              className="bg-[#22d3ee] hover:bg-[#0ea5e9] text-white font-medium py-3 px-8 rounded-md transition-colors"
+            >
+              CONTACTANOS
+            </button>
           </div>
         </div>
       </section>
@@ -91,19 +94,11 @@ const AgriculturaPage = () => {
 
             <div className="space-y-8">
               <div className="rounded-xl overflow-hidden shadow-lg" data-aos="fade-left">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Agricultura 1"
-                  className="w-full h-64 object-cover"
-                />
+                <img src={image1 || "/placeholder.svg"} alt="Agricultura 1" className="w-full h-64 object-cover" />
               </div>
 
               <div className="rounded-xl overflow-hidden shadow-lg" data-aos="fade-left" data-aos-delay="100">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Agricultura 2"
-                  className="w-full h-64 object-cover"
-                />
+                <img src={image2 || "/placeholder.svg"} alt="Agricultura 2" className="w-full h-64 object-cover" />
               </div>
             </div>
           </div>
@@ -209,47 +204,34 @@ const AgriculturaPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[#1f2937] text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6" data-aos="fade-up">
-            Transforma tu agricultura con tecnología de vanguardia
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Solicita una consulta personalizada y descubre cómo nuestras soluciones pueden optimizar tus cultivos.
-          </p>
-           <button
+      <section
+  className="py-16 bg-[#1f2937] text-white bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${image5 || "/placeholder.svg"})`,
+  }}
+>
+  <div className="container mx-auto px-4 text-center bg-black/60 p-6 rounded-md">
+    <h2 className="text-3xl font-bold mb-6" data-aos="fade-up">
+      Transforma tu agricultura con tecnología de vanguardia
+    </h2>
+    <p
+      className="text-xl text-white/80 mb-8 max-w-2xl mx-auto"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      Solicita una consulta personalizada y descubre cómo nuestras soluciones pueden optimizar tus cultivos.
+    </p>
+    <button
       onClick={goToContact}
       className="bg-[#22d3ee] hover:bg-[#0ea5e9] text-white font-medium py-3 px-8 rounded-md transition-colors"
+      data-aos="fade-up"
+      data-aos-delay="200"
     >
       CONTACTANOS
     </button>
-        </div>
-      </section>
+  </div>
+</section>
 
-      {/* Bottom Image */}
-      <div className="w-full h-64">
-        <img
-          src="/placeholder.svg?height=400&width=1600"
-          alt="Agricultura inferior"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Back to Services */}
-      <div className="bg-white py-8">
-        <div className="container mx-auto px-4">
-          <Link to="/" className="inline-flex items-center text-[#22d3ee] hover:text-[#0ea5e9] transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path
-                fillRule="evenodd"
-                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Volver a servicios
-          </Link>
-        </div>
-      </div>
     </div>
   )
 }

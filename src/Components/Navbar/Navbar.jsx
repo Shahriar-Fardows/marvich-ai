@@ -54,11 +54,11 @@ const Navbar = () => {
   
 
   const navLinks = [
-    { name: "HOME", href: "#home" },
+    { name: "HOME", href: "/" },
     { name: "SOLUCIONES", href: "#solutions" },
     { name: "INDUSTRIAS", href: "#industries" },
     { name: "CONTACTO", href: "#contact" },
-    { name: "PREGUNTAS FRECUENTES", href: "https://marvich-ai.cl/PreguntasFre" },
+    { name: "PREGUNTAS FRECUENTES", href: "" },
   ]
 
   return (
