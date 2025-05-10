@@ -25,7 +25,7 @@ const MineriaEnergiaPage = () => {
   }
 
   return (
-    <div className="bg-[#f8fafc]">
+    <div className="bg-[#1f2937]">
       {/* Hero Section with Background Image */}
       <section className="relative  min-h-[60vh] flex items-center pt-32 pb-20">
         <div className="absolute inset-0 z-0">
@@ -35,7 +35,7 @@ const MineriaEnergiaPage = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl" data-aos="fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#22d3ee] mb-4">
               Análisis avanzado de operaciones mineras y energéticas
             </h1>
             <p className="text-xl text-white/90 mb-8">
@@ -58,7 +58,7 @@ const MineriaEnergiaPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8" data-aos="fade-up">
               <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Transformación Digital en Minería y Energía</h2>
+                <h2 className="text-3xl font-bold text-[#22d3ee] mb-6">Transformación Digital en Minería y Energía</h2>
                 <p className="text-gray-700 leading-relaxed">
                   Las operaciones mineras y energéticas enfrentan desafíos únicos en términos de eficiencia, seguridad y
                   sostenibilidad. Nuestra plataforma de inteligencia artificial geoespacial proporciona una visión
@@ -76,8 +76,8 @@ const MineriaEnergiaPage = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Áreas de aplicación</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <h3 className="text-2xl font-bold text-[#22d3ee] mb-4">Áreas de aplicación</h3>
+                <ul className="list-disc pl-6 space-y-2 text-white [&>li::marker]:text-[#22d3ee]">
                   <li>Monitoreo de operaciones y activos</li>
                   <li>Detección de cambios y anomalías</li>
                   <li>Evaluación de impacto ambiental</li>
@@ -103,7 +103,7 @@ const MineriaEnergiaPage = () => {
       {/* Benefits Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center" data-aos="fade-up">
+          <h2 className="text-3xl font-bold text-[#22d3ee] mb-12 text-center" data-aos="fade-up">
             Beneficios clave
           </h2>
 
@@ -124,7 +124,7 @@ const MineriaEnergiaPage = () => {
                   <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Reducción de costos</h3>
+              <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Reducción de costos</h3>
               <p className="text-gray-600">Optimiza operaciones y reduce gastos operativos.</p>
             </div>
 
@@ -143,7 +143,7 @@ const MineriaEnergiaPage = () => {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Mayor seguridad</h3>
+              <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Mayor seguridad</h3>
               <p className="text-gray-600">Detecta riesgos potenciales antes de que se conviertan en problemas.</p>
             </div>
 
@@ -167,7 +167,7 @@ const MineriaEnergiaPage = () => {
                   <path d="M20.27 17.27 22 19" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Sostenibilidad</h3>
+              <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Sostenibilidad</h3>
               <p className="text-gray-600">Minimiza el impacto ambiental y mejora la gestión de recursos.</p>
             </div>
 
@@ -187,7 +187,7 @@ const MineriaEnergiaPage = () => {
                   <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Cumplimiento normativo</h3>
+              <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Cumplimiento normativo</h3>
               <p className="text-gray-600">Facilita el cumplimiento de regulaciones ambientales y de seguridad.</p>
             </div>
           </div>
