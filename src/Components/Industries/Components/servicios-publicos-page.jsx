@@ -3,12 +3,12 @@
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-import imageBanner from "../../../assets/forestal/imageBanner.png"
 import image1 from "../../../assets/forestal/image1.png"
 import image2 from "../../../assets/forestal/image2.png"
 import imageInferior from "../../../assets/forestal/image6.png"
+import imageBanner from "../../../assets/forestal/imageBanner.png"
 
 const ServiciosPublicosPage = () => {
   useEffect(() => {
@@ -30,7 +30,7 @@ const ServiciosPublicosPage = () => {
   return (
     <div className="bg-[#f8fafc]">
       {/* Hero Section with Background Image */}
-      <section className="relative h-[60vh] min-h-[60vh] flex items-center pt-32 pb-20">
+      <section className="relative  min-h-[60vh] flex items-center pt-32 pb-20">
         <div className="absolute inset-0 z-0">
           <img
             src={imageBanner || "/placeholder.svg"}
