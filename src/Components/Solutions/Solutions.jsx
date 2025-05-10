@@ -1,7 +1,8 @@
+"use client"
 
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 // Import images as organized by client
 import image1 from "../../assets/part2/comolohacemos/image1.png"
@@ -29,7 +30,9 @@ const AISection = () => {
 
   // State for managing dropdown visibility
   const [openDropdown, setOpenDropdown] = useState(null)
-  const [dropdownHeight, setDropdownHeight] = useState(0)
+
+  // Refs for dropdown content elements
+  const dropdownRefs = useRef([null, null, null])
 
   // States for image slideshows
   const [currentImageIndices, setCurrentImageIndices] = useState([0, 0, 0])
@@ -85,18 +88,6 @@ const AISection = () => {
     }
   }, [])
 
-  // Effect to measure dropdown height
-  useEffect(() => {
-    if (openDropdown !== null) {
-      const dropdown = document.querySelector(".dropdown-content")
-      if (dropdown) {
-        setDropdownHeight(dropdown.offsetHeight)
-      }
-    } else {
-      setDropdownHeight(0)
-    }
-  }, [openDropdown])
-
   // Content for the three cards based on client requirements
   const cards = [
     {
@@ -144,15 +135,12 @@ const AISection = () => {
           </h2>
         </div>
 
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          style={{ marginBottom: dropdownHeight > 0 ? `${dropdownHeight + 20}px` : "0" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {cards.map((card, index) => (
             <div
               key={index}
               data-aos="zoom-in"
-              className="flex flex-col h-full"
+              className="flex flex-col h-full relative"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Updated titles as per client requirements */}
@@ -185,7 +173,7 @@ const AISection = () => {
               <p className="text-gray-300 mb-4">{card.description}</p>
 
               {/* Dropdown button and content container */}
-              <div className="relative w-full mt-auto">
+              <div className="relative w-full mt-auto" style={{ zIndex: openDropdown === index ? 60 : 1 }}>
                 <button
                   onClick={() => toggleDropdown(index)}
                   className="w-full bg-gray-800 hover:bg-gray-700 text-cyan-400 font-medium py-3 px-4 rounded-md transition-all duration-300 hover:text-white flex items-center justify-between group"
@@ -207,9 +195,17 @@ const AISection = () => {
                   </svg>
                 </button>
 
-                {/* Dropdown content - FIXED: now appears BELOW the button with proper spacing and z-index */}
+                {/* Dropdown content - Fixed positioning to avoid layout shifts */}
                 {openDropdown === index && (
-                  <div className="absolute w-full top-full left-0 mt-2 md:bg-[#000000] rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out border border-cyan-400 dropdown-content bg-gray-800 ">
+                  <div
+                    ref={(el) => (dropdownRefs.current[index] = el)}
+                    className="fixed w-full left-0 mt-2 md:bg-[#000000] rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out border border-cyan-400 dropdown-content bg-gray-800 z-50"
+                    style={{
+                      top: "auto",
+                      width: "calc(100% - 2rem)",
+                      maxWidth: "100%",
+                    }}
+                  >
                     <ul className="space-y-2">
                       {card.dropdownContent.map((item, itemIndex) => (
                         <li key={itemIndex} className="text-gray-200 flex items-start">
