@@ -140,7 +140,7 @@ const AISection = () => {
             <div
               key={index}
               data-aos="zoom-in"
-              className="flex flex-col h-full relative"
+              className="flex flex-col h-full relative z-10"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Updated titles as per client requirements */}
