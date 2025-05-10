@@ -27,7 +27,7 @@ const ForestalPage = () => {
   }
 
   return (
-    <div className="bg-[#f8fafc]">
+    <div className="bg-[#1f2937]">
       {/* Hero Section with Background Image */}
       <section className="relative  min-h-[60vh] flex items-center pt-32 pb-20">
         <div className="absolute inset-0 z-0">
@@ -41,7 +41,7 @@ const ForestalPage = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl" data-aos="fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#22d3ee] mb-4">
               Monitoreo forestal con inteligencia artificial geoespacial para silvicultura de precisión
             </h1>
             <p className="text-xl text-white/90 mb-8">
@@ -64,33 +64,34 @@ const ForestalPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8" data-aos="fade-up">
               <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Silvicultura de Precisión</h2>
-                <p className="text-gray-700 leading-relaxed">
+                <h2 className="text-3xl font-bold text-[#22d3ee] mb-6">Silvicultura de Precisión</h2>
+                <p className="text-white leading-relaxed">
                   Los muestreos manuales, lentos y costosos ya deben ser parte del pasado. Con Marvich AI, digitaliza el
                   control de tu patrimonio forestal mediante monitoreo remoto continuo, sin interrupciones ni sesgos de
                   cobertura.
                 </p>
-                <p className="text-gray-700 leading-relaxed mt-4">
+                <p className="text-white leading-relaxed mt-4">
                   Utilizamos múltiples fuentes de datos —satélites, drones, sensores móviles y terrestres— para capturar
                   en alta resolución lo que ocurre en tu territorio. Nuestros modelos de inteligencia artificial y deep
                   learning analizan esta información en tiempo real para detectar eventos críticos, desviaciones
                   operativas o condiciones anómalas de forma automática.
                 </p>
-                <p className="text-gray-700 leading-relaxed mt-4">
+                <p className="text-white leading-relaxed mt-4">
                   Transformamos grandes volúmenes de datos en información clara y accionable, ayudándote a tomar
                   decisiones más rápidas y eficientes.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">¿Qué procesos forestales monitoreamos?</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li>Cosecha preparación de suelos y habilitación</li>
-                  <li>Plantación, prendimiento (sobrevivencia) y control de malezas</li>
-                  <li>Raleo, regeneración y salud del bosque</li>
-                  <li>Prevención de incendios</li>
-                  <li>Impactos por eventos climáticos o intervención humana</li>
-                </ul>
+                <h3 className="text-2xl font-bold text-[#22d3ee] mb-4">¿Qué procesos forestales monitoreamos?</h3>
+                <ul className="list-disc pl-6 space-y-2 text-white [&>li::marker]:text-[#22d3ee]">
+  <li>Cosecha preparación de suelos y habilitación</li>
+  <li>Plantación, prendimiento (sobrevivencia) y control de malezas</li>
+  <li>Raleo, regeneración y salud del bosque</li>
+  <li>Prevención de incendios</li>
+  <li>Impactos por eventos climáticos o intervención humana</li>
+</ul>
+
               </div>
             </div>
 
@@ -116,14 +117,14 @@ const ForestalPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-[#111827]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center" data-aos="fade-up">
             Beneficios clave
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="0">
+            <div className=" p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="0">
               <div className="text-[#22d3ee] mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
