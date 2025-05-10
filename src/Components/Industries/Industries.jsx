@@ -65,7 +65,7 @@ const IndustriesSection = () => {
           <path d="M10 4h4" />
         </svg>
       ),
-      url: "/agricultura",
+      url: "/agricultura-regenerativa",
     },
     {
       title: "Servicios públicos",

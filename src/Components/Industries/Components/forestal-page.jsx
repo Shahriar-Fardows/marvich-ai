@@ -118,98 +118,67 @@ const ForestalPage = () => {
 
       {/* Benefits Section */}
       <section className="py-16 bg-[#111827]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center" data-aos="fade-up">
-            Beneficios clave
-          </h2>
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-gray-100 mb-12 text-center" data-aos="fade-up">
+      Beneficios clave
+    </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="border border-gray-700 p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="0">
-              <div className="text-[#22d3ee] mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 8c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5z" />
-                  <path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Reducción de costos operativos</h3>
-              <p className="text-white">
-                Optimiza recursos y reduce gastos innecesarios con monitoreo automatizado.
-              </p>
-            </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
-              <div className="text-[#22d3ee] mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-                  <path d="m9 14 2 2 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Priorización inteligente del trabajo</h3>
-              <p className="text-gray-600">Enfoca tus esfuerzos donde realmente importa gracias a datos precisos.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
-              <div className="text-[#22d3ee] mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 20h9" />
-                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Mejora continua en la planificación</h3>
-              <p className="text-gray-600">Perfecciona constantemente la gestión de tu patrimonio forestal.</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
-              <div className="text-[#22d3ee] mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M9 12h6" />
-                  <path d="M12 9v6" />
-                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Trazabilidad y cumplimiento</h3>
-              <p className="text-gray-600">Asegura el cumplimiento de normas ambientales con registros precisos.</p>
-            </div>
-          </div>
+      {/* Card 1 */}
+      <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="0">
+        <div className="text-[#22d3ee] mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 8c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5z" />
+            <path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
+          </svg>
         </div>
-      </section>
+        <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Reducción de costos operativos</h3>
+        <p>Optimiza recursos y reduce gastos innecesarios con monitoreo automatizado.</p>
+      </div>
+
+      {/* Card 2 */}
+      <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="100">
+        <div className="text-[#22d3ee] mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+            <path d="m9 14 2 2 4-4" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Priorización inteligente del trabajo</h3>
+        <p>Enfoca tus esfuerzos donde realmente importa gracias a datos precisos.</p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="200">
+        <div className="text-[#22d3ee] mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Mejora continua en la planificación</h3>
+        <p>Perfecciona constantemente la gestión de tu patrimonio forestal.</p>
+      </div>
+
+      {/* Card 4 */}
+      <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="300">
+        <div className="text-[#22d3ee] mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 12h6" />
+            <path d="M12 9v6" />
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Trazabilidad y cumplimiento</h3>
+        <p>Asegura el cumplimiento de normas ambientales con registros precisos.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* CTA Section */}
       <section

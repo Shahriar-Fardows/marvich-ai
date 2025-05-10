@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <ForestalPage />,
       },
       {
-        path: "/agricultura",
+        path: "/agricultura-regenerativa",
         element: <AgriculturaPage />,
       },
       {
