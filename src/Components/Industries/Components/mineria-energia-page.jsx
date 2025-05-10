@@ -59,17 +59,17 @@ const MineriaEnergiaPage = () => {
             <div className="space-y-8" data-aos="fade-up">
               <div>
                 <h2 className="text-3xl font-bold text-[#22d3ee] mb-6">Transformación Digital en Minería y Energía</h2>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-white leading-relaxed">
                   Las operaciones mineras y energéticas enfrentan desafíos únicos en términos de eficiencia, seguridad y
                   sostenibilidad. Nuestra plataforma de inteligencia artificial geoespacial proporciona una visión
                   integral y en tiempo real de tus activos y operaciones.
                 </p>
-                <p className="text-gray-700 leading-relaxed mt-4">
+                <p className="text-white leading-relaxed mt-4">
                   Mediante el análisis de imágenes satelitales, datos de sensores terrestres y drones, nuestra
                   tecnología permite monitorear continuamente grandes extensiones de terreno, detectar anomalías,
                   optimizar la extracción de recursos y minimizar el impacto ambiental.
                 </p>
-                <p className="text-gray-700 leading-relaxed mt-4">
+                <p className="text-white leading-relaxed mt-4">
                   Nuestras soluciones se adaptan a las necesidades específicas de cada operación, proporcionando
                   información accionable para mejorar la toma de decisiones en todos los niveles.
                 </p>
@@ -101,14 +101,14 @@ const MineriaEnergiaPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-[#111827]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#22d3ee] mb-12 text-center" data-aos="fade-up">
             Beneficios clave
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="0">
+            <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="0">
               <div className="text-[#22d3ee] mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ const MineriaEnergiaPage = () => {
               <p className="text-gray-600">Optimiza operaciones y reduce gastos operativos.</p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+            <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="100">
               <div className="text-[#22d3ee] mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +147,7 @@ const MineriaEnergiaPage = () => {
               <p className="text-gray-600">Detecta riesgos potenciales antes de que se conviertan en problemas.</p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+            <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="200">
               <div className="text-[#22d3ee] mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ const MineriaEnergiaPage = () => {
               <p className="text-gray-600">Minimiza el impacto ambiental y mejora la gestión de recursos.</p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
+            <div className="border border-gray-700 p-8 rounded-xl shadow-md text-white" data-aos="fade-up" data-aos-delay="300">
               <div className="text-[#22d3ee] mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
