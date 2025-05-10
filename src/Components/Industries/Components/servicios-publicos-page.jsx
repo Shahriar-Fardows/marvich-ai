@@ -4,10 +4,11 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import imageBanner from "../asset"
-import image1 from "../assets/servicios-publicos/image1.png"
-import image2 from "../assets/servicios-publicos/image2.png"
-import imageInferior from "../assets/servicios-publicos/inferior.png"
+
+import imageBanner from "../../../assets/forestal/imageBanner.png"
+import image1 from "../../../assets/forestal/image1.png"
+import image2 from "../../../assets/forestal/image2.png"
+import imageInferior from "../../../assets/forestal/image6.png"
 
 const ServiciosPublicosPage = () => {
   useEffect(() => {

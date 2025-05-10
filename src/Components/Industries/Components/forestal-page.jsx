@@ -4,10 +4,10 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import imageBanner from "../assets/forestal/imageBanner.png"
-import image1 from "../assets/forestal/image1.png"
-import image2 from "../assets/forestal/image2.png"
-import image6 from "../assets/forestal/image6.png"
+import imageBanner from "../../../assets/forestal/imageBanner.png"
+import image1 from "../../../assets/forestal/image1.png"
+import image2 from "../../../assets/forestal/image2.png"
+import image6 from "../../../assets/forestal/image6.png"
 
 const ForestalPage = () => {
   useEffect(() => {
