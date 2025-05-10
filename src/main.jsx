@@ -5,6 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from './Root';
 import Error from './Pages/Error/Error';
 import Home from './Home/Home';
+import ForestalPage from './Components/Industries/Components/forestal-page';
+import AgriculturaPage from './Components/Industries/Components/agricultura-page';
+import ServiciosPublicosPage from './Components/Industries/Components/servicios-publicos-page';
+import MineriaEnergiaPage from './Components/Industries/Components/mineria-energia-page';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +19,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/forestal",
+        element: <ForestalPage />,
+      },
+      {
+        path: "/agricultura",
+        element: <AgriculturaPage />,
+      },
+      {
+        path: "/servicios-publicos",
+        element: <ServiciosPublicosPage />,
+      },
+      {
+        path: "/mineria-energia",
+        element: <MineriaEnergiaPage />,
       },
     ],
 

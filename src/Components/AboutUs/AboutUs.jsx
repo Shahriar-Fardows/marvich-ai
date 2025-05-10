@@ -1,8 +1,9 @@
+
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect, useState } from "react"
-import image10 from '../../assets/image10.png'
-import image9 from '../../assets/image9.png'
+import image10 from "../../assets/image10.png"
+import image9 from "../../assets/image9.png"
 
 const AboutUsSection = () => {
   useEffect(() => {
@@ -75,7 +76,7 @@ const AboutUsSection = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M2 22c1.25-1.25 2.5-2.5 3.5-2.5 1.5 0 2 1.5 3 1.5s1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5" />
+          <path d="M2 22c1.25-1.25 2.5-2.5 3.5-2.5 1.5 0 2 1.5 3 1.5s1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5 2 1.5 3 1.5 1.5-1.5 3-1.5" />
           <path d="M19 16c.8-1 1-2.1 1-3.5C20 6.8 16.2 3 12 3s-8 3.8-8 9.5c0 1.4.2 2.5 1 3.5" />
         </svg>
       ),
@@ -95,9 +96,9 @@ const AboutUsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left column - Who we are */}
           <div className="lg:col-span-5" data-aos="fade-up">
-            <div className="bg-white rounded-xl shadow-lg p-8 h-full">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <span className="text-cyan-500 mr-3">
+            <div className="rounded-xl border border-gray-700 bg-gray-900/50 p-8 h-full">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+                <span className="text-cyan-400 mr-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-8 h-8"
@@ -117,24 +118,24 @@ const AboutUsSection = () => {
                 Quiénes somos
               </h3>
 
-              <ul className="space-y-4 text-gray-700">
+              <ul className="space-y-4 text-gray-300">
                 <li className="flex items-start">
-                  <span className="text-cyan-500 mr-3 mt-1">•</span>
+                  <span className="text-cyan-400 mr-3 mt-1">•</span>
                   <p>Más de 8 años combinados de experiencia en IA aplicada a datos de sensores remotos.</p>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-cyan-500 mr-3 mt-1">•</span>
+                  <span className="text-cyan-400 mr-3 mt-1">•</span>
                   <p>Especialistas en integrar visión artificial, datos geoespaciales y automatización de procesos.</p>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-cyan-500 mr-3 mt-1">•</span>
+                  <span className="text-cyan-400 mr-3 mt-1">•</span>
                   <p>Pasión por impulsar decisiones sostenibles a escala global.</p>
                 </li>
               </ul>
 
               <div className="mt-8">
-                <h4 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  <span className="text-cyan-500 mr-3">
+                <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
+                  <span className="text-cyan-400 mr-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-6 h-6"
@@ -151,17 +152,17 @@ const AboutUsSection = () => {
                   </span>
                   Presencia regional
                 </h4>
-                <ul className="space-y-2 text-gray-700 ml-9">
+                <ul className="space-y-2 text-gray-300 ml-9">
                   <li className="flex items-start">
-                    <span className="text-cyan-500 mr-3">•</span>
+                    <span className="text-cyan-400 mr-3">•</span>
                     <p>Base en Chile</p>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-cyan-500 mr-3">•</span>
+                    <span className="text-cyan-400 mr-3">•</span>
                     <p>Operaciones en Perú y Bolivia</p>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-cyan-500 mr-3">•</span>
+                    <span className="text-cyan-400 mr-3">•</span>
                     <p>Expansión prioritaria Paraguay</p>
                   </li>
                 </ul>
@@ -171,15 +172,15 @@ const AboutUsSection = () => {
 
           {/* Right column - Mission, Vision, Values */}
           <div className="lg:col-span-7" data-aos="fade-up">
-            <div className="bg-white rounded-xl shadow-lg p-8 h-full">
+            <div className="rounded-xl border border-gray-700 bg-gray-900/50 p-8 h-full">
               {/* Tabs */}
-              <div className="flex border-b border-gray-200 mb-8">
+              <div className="flex border-b border-gray-700 mb-8">
                 <button
                   onClick={() => setActiveTab("mission")}
                   className={`pb-4 px-4 font-medium text-lg transition-colors ${
                     activeTab === "mission"
-                      ? "text-cyan-500 border-b-2 border-cyan-500"
-                      : "text-gray-500 hover:text-gray-700"
+                      ? "text-cyan-400 border-b-2 border-cyan-400"
+                      : "text-gray-400 hover:text-gray-200"
                   }`}
                 >
                   Misión
@@ -188,8 +189,8 @@ const AboutUsSection = () => {
                   onClick={() => setActiveTab("vision")}
                   className={`pb-4 px-4 font-medium text-lg transition-colors ${
                     activeTab === "vision"
-                      ? "text-cyan-500 border-b-2 border-cyan-500"
-                      : "text-gray-500 hover:text-gray-700"
+                      ? "text-cyan-400 border-b-2 border-cyan-400"
+                      : "text-gray-400 hover:text-gray-200"
                   }`}
                 >
                   Visión
@@ -198,8 +199,8 @@ const AboutUsSection = () => {
                   onClick={() => setActiveTab("values")}
                   className={`pb-4 px-4 font-medium text-lg transition-colors ${
                     activeTab === "values"
-                      ? "text-cyan-500 border-b-2 border-cyan-500"
-                      : "text-gray-500 hover:text-gray-700"
+                      ? "text-cyan-400 border-b-2 border-cyan-400"
+                      : "text-gray-400 hover:text-gray-200"
                   }`}
                 >
                   Valores
@@ -212,17 +213,16 @@ const AboutUsSection = () => {
                 {activeTab === "mission" && (
                   <div className="animate-fadeIn">
                     <div className="flex items-start mb-6">
-                     
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Nuestra Misión</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-2xl font-bold text-white mb-2">Nuestra Misión</h3>
+                        <p className="text-gray-300 text-lg leading-relaxed">
                           Transformar datos geoespaciales complejos en decisiones inmediatas que mejoran la eficiencia,
                           la sostenibilidad y la competitividad de nuestros clientes.
                         </p>
                       </div>
                     </div>
                     <img
-                      src={image9}
+                      src={image9 || "/placeholder.svg"}
                       alt="Mission visualization"
                       className="w-full h-48 object-cover rounded-lg mt-6"
                     />
@@ -234,15 +234,15 @@ const AboutUsSection = () => {
                   <div className="animate-fadeIn">
                     <div className="flex items-start mb-6">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Nuestra Visión</h3>
-                        <p className="text-gray-700 text-lg leading-relaxed">
+                        <h3 className="text-2xl font-bold text-white mb-2">Nuestra Visión</h3>
+                        <p className="text-gray-300 text-lg leading-relaxed">
                           Ser líderes en soluciones GeoAI en América Latina, conectando el dato espacial con la
                           inteligencia del futuro.
                         </p>
                       </div>
                     </div>
                     <img
-                      src={image10}
+                      src={image10 || "/placeholder.svg"}
                       alt="Vision visualization"
                       className="w-full h-48 object-cover rounded-lg mt-6"
                     />
@@ -252,13 +252,13 @@ const AboutUsSection = () => {
                 {/* Values */}
                 {activeTab === "values" && (
                   <div className="animate-fadeIn">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-6">Nuestros Valores</h3>
+                    <h3 className="text-2xl font-bold text-white mb-6">Nuestros Valores</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {values.map((value, index) => (
-                        <div key={index} className="bg-gray-50 rounded-lg p-6 text-center">
-                          <div className="text-cyan-500 mb-4 flex justify-center">{value.icon}</div>
-                          <h4 className="text-xl font-semibold text-gray-800 mb-2">{value.title}</h4>
-                          <p className="text-gray-600">{value.description}</p>
+                        <div key={index} className="bg-gray-800 rounded-lg p-6 text-center border border-gray-700">
+                          <div className="text-cyan-400 mb-4 flex justify-center">{value.icon}</div>
+                          <h4 className="text-xl font-semibold text-white mb-2">{value.title}</h4>
+                          <p className="text-gray-300">{value.description}</p>
                         </div>
                       ))}
                     </div>

@@ -1,8 +1,7 @@
-"use client"
 
-import { useState, useEffect } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { useEffect, useState } from "react"
 
 // Import images as organized by client
 import image1 from "../../assets/part2/comolohacemos/image1.png"
@@ -30,6 +29,7 @@ const AISection = () => {
 
   // State for managing dropdown visibility
   const [openDropdown, setOpenDropdown] = useState(null)
+  const [dropdownHeight, setDropdownHeight] = useState(0)
 
   // States for image slideshows
   const [currentImageIndices, setCurrentImageIndices] = useState([0, 0, 0])
@@ -85,6 +85,18 @@ const AISection = () => {
     }
   }, [])
 
+  // Effect to measure dropdown height
+  useEffect(() => {
+    if (openDropdown !== null) {
+      const dropdown = document.querySelector(".dropdown-content")
+      if (dropdown) {
+        setDropdownHeight(dropdown.offsetHeight)
+      }
+    } else {
+      setDropdownHeight(0)
+    }
+  }, [openDropdown])
+
   // Content for the three cards based on client requirements
   const cards = [
     {
@@ -124,7 +136,7 @@ const AISection = () => {
   ]
 
   return (
-    <section id="ai-section" className="py-20 bg-black">
+    <section id="solutions" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white max-w-4xl mx-auto leading-tight">
@@ -132,7 +144,10 @@ const AISection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          style={{ marginBottom: dropdownHeight > 0 ? `${dropdownHeight + 20}px` : "0" }}
+        >
           {cards.map((card, index) => (
             <div
               key={index}
@@ -145,13 +160,16 @@ const AISection = () => {
                 {index === 0 ? "Que procesamos" : index === 1 ? "Como lo hacemos" : "Para que lo hacemos"}
               </h3>
 
-              <div className="relative overflow-hidden rounded-xl border-2 border-cyan-400 flex-grow mb-4 h-80">
-                {/* Image slideshow for each section */}
-                <div className="absolute inset-0 w-full h-full">
+              {/* Fixed image container to ensure all images are the same size and centered */}
+              <div className="relative overflow-hidden rounded-xl border-2 border-cyan-400 flex-grow mb-4 h-80 max-h-80">
+                {/* Image slideshow for each section - fixed centering for all images */}
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center">
                   <img
                     src={sectionImages[index][currentImageIndices[index]] || "/placeholder.svg"}
                     alt={card.title}
-                    className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${fadeIn[index] ? "opacity-100" : "opacity-0"}`}
+                    className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                      fadeIn[index] ? "opacity-100" : "opacity-0"
+                    }`}
                   />
                 </div>
 
@@ -166,7 +184,7 @@ const AISection = () => {
               {/* Description text below the image */}
               <p className="text-gray-300 mb-4">{card.description}</p>
 
-              {/* Dropdown button */}
+              {/* Dropdown button and content container */}
               <div className="relative w-full mt-auto">
                 <button
                   onClick={() => toggleDropdown(index)}
@@ -175,7 +193,9 @@ const AISection = () => {
                   <span>Más información</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`h-5 w-5 transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""} group-hover:text-white`}
+                    className={`h-5 w-5 transition-transform duration-300 ${
+                      openDropdown === index ? "rotate-180" : ""
+                    } group-hover:text-white`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -187,20 +207,19 @@ const AISection = () => {
                   </svg>
                 </button>
 
-                {/* Dropdown content with fixed z-index to ensure it appears above other elements */}
+                {/* Dropdown content - FIXED: now appears BELOW the button with proper spacing and z-index */}
                 {openDropdown === index && (
-  <div className="absolute z-50 w-full bottom-full mb-2 bg-gray-800 rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out">
-    <ul className="space-y-2">
-      {card.dropdownContent.map((item, itemIndex) => (
-        <li key={itemIndex} className="text-gray-200 flex items-start">
-          <span className="text-cyan-400 mr-2">•</span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-
+                  <div className="absolute w-full top-full left-0 mt-2 md:bg-[#000000] rounded-md shadow-lg py-4 px-6 text-left transform transition-all duration-300 ease-in-out border border-cyan-400 dropdown-content bg-gray-800 ">
+                    <ul className="space-y-2">
+                      {card.dropdownContent.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-gray-200 flex items-start">
+                          <span className="text-cyan-400 mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           ))}

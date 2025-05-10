@@ -1,4 +1,3 @@
-"use client"
 
 import { useState, useEffect } from "react"
 import logo from "../../assets/marca.svg"
@@ -10,7 +9,21 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
+
+      // Detectar qué sección está activa basado en la posición de scroll
+      const sections = ["forestal", "agricultura", "infraestructura", "mineria"]
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            break
+          }
+        }
+      }
     }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -37,6 +50,8 @@ const Navbar = () => {
       document.body.style.overflow = ""
     }
   }, [sidebarOpen])
+
+  
 
   const navLinks = [
     { name: "HOME", href: "#home" },
@@ -111,7 +126,7 @@ const Navbar = () => {
         >
           <div className="flex justify-between items-center p-4 border-b border-gray-700">
             <a href="#home" className="flex items-center" onClick={() => setSidebarOpen(false)}>
-              <img className="w-40" src={logo || "/placeholder.svg"} alt="logo" />
+              <img className="w-40" src="/placeholder.svg" alt="logo" />
             </a>
             <button className="text-gray-200" onClick={() => setSidebarOpen(false)} aria-label="Close menu">
               <svg

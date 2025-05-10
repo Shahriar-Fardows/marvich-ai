@@ -1,7 +1,8 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from "react"
 
 const IndustriesSection = () => {
   useEffect(() => {
@@ -11,19 +12,15 @@ const IndustriesSection = () => {
     })
   }, [])
 
-  // State for managing expanded industry
-  const [expandedIndustry, setExpandedIndustry] = useState(null)
-
-  // Toggle expanded industry
-  const toggleIndustry = (index) => {
-    if (expandedIndustry === index) {
-      setExpandedIndustry(null)
-    } else {
-      setExpandedIndustry(index)
+  // Function to scroll to contact section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
     }
   }
 
-  // Industry data
+  // Industry data with URLs
   const industries = [
     {
       title: "Forestal",
@@ -46,6 +43,7 @@ const IndustriesSection = () => {
           <path d="M7.5 10h9" />
         </svg>
       ),
+      url: "/forestal",
     },
     {
       title: "Agricultura regenerativa",
@@ -68,6 +66,7 @@ const IndustriesSection = () => {
           <path d="M10 4h4" />
         </svg>
       ),
+      url: "/agricultura",
     },
     {
       title: "Servicios públicos",
@@ -91,6 +90,7 @@ const IndustriesSection = () => {
           <path d="M18 21a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1" />
         </svg>
       ),
+      url: "/servicios-publicos",
     },
     {
       title: "Minería y energía",
@@ -113,11 +113,12 @@ const IndustriesSection = () => {
           <path d="M22 6 12 2 2 6" />
         </svg>
       ),
+      url: "/mineria-energia",
     },
   ]
 
   return (
-    <section id="industries" className="py-20 bg-[#1f2937]">
+    <section id="industries" className="py-20 bg-[#1f2937] z-30">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left column - Title and description */}
@@ -130,7 +131,11 @@ const IndustriesSection = () => {
               inmediatas y sostenibles.
             </p>
             <a
-              href="#"
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToContact()
+              }}
               className="inline-flex items-center text-cyan-600 font-medium hover:text-cyan-700 transition-colors"
             >
               Learn more about our solutions
@@ -159,14 +164,14 @@ const IndustriesSection = () => {
                     <div className="flex-grow">
                       <h3 className="text-xl font-semibold text-[#22d3ee] mb-2">{industry.title}</h3>
                       <p className="text-white mb-3">{industry.description}</p>
-                      <button
-                        onClick={() => toggleIndustry(index)}
+                      <Link
+                        to={industry.url}
                         className="inline-flex items-center text-cyan-400 hover:text-cyan-700 transition-colors"
                       >
                         Click here for more information
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className={`h-4 w-4 ml-1 transition-transform duration-300 ${expandedIndustry === index ? "rotate-90" : ""}`}
+                          className="h-4 w-4 ml-1 transition-transform duration-300"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -176,17 +181,7 @@ const IndustriesSection = () => {
                             clipRule="evenodd"
                           />
                         </svg>
-                      </button>
-
-                      {/* Expanded content */}
-                      {expandedIndustry === index && (
-                        <div className="mt-4 pl-4 border-l-2 border-cyan-500 text-gray-600 animate-fadeIn">
-                          <p>
-                            Utilizamos tecnología de vanguardia para proporcionar soluciones personalizadas que
-                            optimizan sus operaciones y mejoran la toma de decisiones.
-                          </p>
-                        </div>
-                      )}
+                      </Link>
                     </div>
                   </div>
                 </div>
