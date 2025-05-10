@@ -71,7 +71,7 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <a href="#home" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img className="w-60 h-10" src={logo || "/placeholder.svg"} alt="logo" />
           </a>
 
@@ -125,8 +125,8 @@ const Navbar = () => {
           }`}
         >
           <div className="flex justify-between items-center p-4 border-b border-gray-700">
-            <a href="#home" className="flex items-center" onClick={() => setSidebarOpen(false)}>
-              <img className="w-40" src="/placeholder.svg" alt="logo" />
+            <a href="/" className="flex items-center" onClick={() => setSidebarOpen(false)}>
+              <img className="w-40" src={logo || "/placeholder.svg"} alt="logo" />
             </a>
             <button className="text-gray-200" onClick={() => setSidebarOpen(false)} aria-label="Close menu">
               <svg

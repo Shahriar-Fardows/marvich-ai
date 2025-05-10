@@ -124,7 +124,7 @@ const ForestalPage = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className=" p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="0">
+            <div className="border border-gray-700 p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="0">
               <div className="text-[#22d3ee] mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,8 +140,8 @@ const ForestalPage = () => {
                   <path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Reducción de costos operativos</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-[#22d3ee] mb-2">Reducción de costos operativos</h3>
+              <p className="text-white">
                 Optimiza recursos y reduce gastos innecesarios con monitoreo automatizado.
               </p>
             </div>
